@@ -1,5 +1,91 @@
 @import '../../shared/styles/variables.scss';
+@import '../../shared/styles/mixins.scss';
 
-h1 {
-    color: $main-color;
+.hero {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    @include flexbox();
+
+    &__main-content {
+        @include flexbox();
+        height: 100%;
+        padding-top: 80px;
+    }
+
+    &__left {
+        @include flexbox($ai: end);
+        height: 100%;
+        width: 50%;
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: contain;
+            height: 80%;
+        }
+
+        @media(max-width: 1260px) {
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__right {
+        width: 50%;
+        height: 100%;
+        padding-top: 120px;
+        @include flexbox($ai: start);
+
+        h1 {
+            color: $main-color;
+            font-size: 128px;
+            line-height: 0.9;
+
+            .greet {
+                font-size: 64px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__icons {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        @include flexbox($fd: column, $gap: 32px);
+        padding-bottom: 32px;
+
+        img {
+            display: block;
+            cursor: pointer;
+            transition: all .15s ease-in-out;
+
+            &:hover {
+                transform: scale(1.25) translateX(-4px);
+            }
+        }
+    }
+}
+
+.ellipse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: translate(-15vw, -10vw);
+    display: inline-block;
+    width: 60vw;
+    aspect-ratio: 1 / 1;
+    // height: 500px;
+    // padding-right: 50%;
+}
+
+.container {
+    height: 100%;
+    position: relative;
 }

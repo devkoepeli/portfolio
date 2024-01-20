@@ -166,14 +166,20 @@ body {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Baloo 2', 'Montserrat', sans-serif;
 }
 
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .container {
     max-width: 1920px;
+    width: 100%;
     margin: 0 auto;
-    @include page-padding;
+    @include page-margin;
 }

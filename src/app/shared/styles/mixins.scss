@@ -6,17 +6,17 @@
     gap: $gap;
 }
 
-@mixin page-padding {
-    padding-left: 64px;
-    padding-right: 64px;
+@mixin page-margin {
+    margin-left: 64px;
+    margin-right: 64px;
 
     @media(max-width: 991.98px) {
-        padding-left: 32px;
-        padding-right: 32px;
+        margin-left: 32px;
+        margin-right: 32px;
     }
 
     @media(max-width: 767.98px) {
-        padding-left: 16px;
-        padding-right: 16px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 }
