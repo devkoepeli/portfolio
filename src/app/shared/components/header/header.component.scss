@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.header-container {
+   @include flexbox($jc: space-between); 
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        @include flexbox($gap: 48px);
+        padding: 0;
+    }
+
+    a {
+        color: $main-color;
+        font-size: 23px;
+        text-decoration: none;
+        font-weight: 300;
+        transition: all .1s ease-in-out;
+        
+       &:hover {
+        text-shadow: 0.5px 0 $main-color, -0.5px 0 $main-color;
+       } 
+    }
+}
