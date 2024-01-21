@@ -4,7 +4,7 @@
 .hero {
     position: relative;
     height: 100%;
-    overflow: hidden;
+    // overflow: hidden;
     @include flexbox();
 
     &__main-content {
@@ -22,7 +22,8 @@
             display: block;
             width: 100%;
             object-fit: contain;
-            height: 80%;
+            height: 100%;
+            object-position: center 100px;
         }
 
         @media(max-width: 1260px) {
@@ -35,7 +36,7 @@
     &__right {
         width: 50%;
         height: 100%;
-        padding-top: 120px;
+        padding-top: 64px;
         @include flexbox($ai: start);
 
         h1 {
@@ -68,21 +69,54 @@
             }
         }
     }
+
+    &__scroll {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 65vw;
+        @include flexbox($fd: column, $jc: end, $gap: 8px);
+
+        span {
+            color: $main-color;
+            font-size: 23px;
+        }
+
+        div {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 25%;
+            background-color: $main-color;
+        }
+    }
 }
 
-.ellipse {
+.ellipse-container {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
-    transform: translate(-15vw, -10vw);
-    display: inline-block;
-    width: 60vw;
-    aspect-ratio: 1 / 1;
-    // height: 500px;
-    // padding-right: 50%;
+    overflow: hidden;
+
+    .ellipse {
+        transform: translate(-15vw, -10vw);
+        display: inline-block;
+        width: 60vw;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.ellipse-overlap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 200px;
+    transform: translateY(50%);
 }
 
 .container {
