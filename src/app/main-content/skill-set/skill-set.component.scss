@@ -1,0 +1,55 @@
+@import '../../shared/styles/mixins.scss';
+@import '../../shared/styles/variables.scss';
+
+section {
+    background-image: linear-gradient(to bottom right, $main-color, $secondary-color);
+    padding-bottom: 120px;
+    padding-top: 120px;
+}
+
+h2 {
+    font-size: 96px;
+    color: white;
+    text-align: center;
+    padding-bottom: 80px
+}
+
+.icons {
+    @include flexbox($fd: column, $gap: 64px);
+
+    &-top,
+    &-bottom {
+        @include flexbox();
+        width: 100%;
+    }
+
+    .icon-container {
+        @include flexbox();
+        flex: 1;
+
+        > div {
+            width: max-content;
+            @include flexbox($fd: column, $gap: 10px);
+
+            &:hover span {
+                font-weight: bold;
+
+            }
+
+            img {
+                transition: all .1s ease-in-out;
+            }
+
+            &:hover img {
+                transform: translateY(-8px);
+            }
+        }
+
+        span {
+            font-size: 16px;
+            color: white;
+            transition: all .1s ease-in-out;
+        }
+
+    }
+}

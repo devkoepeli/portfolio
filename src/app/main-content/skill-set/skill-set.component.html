@@ -1,1 +1,27 @@
-<p>skill-set works!</p>
+<section>
+    <div class="container">
+        <h2>Skill set</h2>
+        <div class="icons">
+            <div class="icons-top">
+                <ng-container *ngFor="let skill of skills, let i = index">
+                    <div class="icon-container" *ngIf="i < 5">
+                        <div>
+                            <img class="icon" [src]="skill.image" [alt]="skill.name + ' Logo'">
+                            <span>{{ skill.name }}</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="icons-bottom">
+                <ng-container *ngFor="let skill of skills, let i = index">
+                    <div class="icon-container" *ngIf="i >= 5">
+                        <div>
+                            <img class="icon" [src]="skill.image" [alt]="skill.name + ' Logo'">
+                            <span>{{ skill.name }}</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>
