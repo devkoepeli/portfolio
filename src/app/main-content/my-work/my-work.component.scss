@@ -1,0 +1,23 @@
+@import '../../shared/styles/mixins.scss';
+@import '../../shared/styles/variables.scss';
+
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.intro {
+    padding-right: 50%;
+    padding-bottom: 120px;
+
+    h2 {
+        color: $main-color;
+        font-size: 96px;
+        padding-bottom: 32px;
+    }
+
+    p {
+        color: $font-black;
+        font-size: 23px;
+    }
+}

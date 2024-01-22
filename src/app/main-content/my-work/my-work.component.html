@@ -1,1 +1,10 @@
-<p>my-work works!</p>
+<section>
+    <div class="container">
+        <div class="intro">
+            <h2>My work</h2>
+            <p>This page is a sample of my work - please feel free to try them out.</p>
+        </div>
+
+        <app-work-sample *ngFor="let sample of workSamples, let i = index" [sample]="sample" [index]="i" [samplesLength]="workSamples.length"></app-work-sample>
+    </div>
+</section>

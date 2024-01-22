@@ -1,0 +1,81 @@
+@import '../../../shared/styles/mixins.scss';
+@import '../../../shared/styles/variables.scss';
+
+.work-sample {
+    @include flexbox($jc: start, $gap: 80px);
+    padding-bottom: 120px;
+
+    img {
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
+        transition: all .15s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.075) translateY(-32px);
+        } 
+    }
+}
+
+.work-description {
+    @include flexbox($fd: column, $ai: start);
+    width: 50%;
+
+    h3 {
+        font-size: 45px;
+        color: $main-color;
+        padding-bottom: 16px;
+    }
+    
+    div {
+        color: $main-color;
+        font-size: 23px;
+        padding-bottom: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        color: $font-black;
+        padding-bottom: 32px;
+    }
+
+    .buttons {
+
+        .secondary-button {
+            display: inline-block;
+            background-color: $main-color;
+            color: $font-white;
+            font-size: 23px;
+            border: 2px solid $main-color;
+            border-radius: 8px;
+            padding: 14px 32px;
+            text-decoration: none;
+            transition: .125s ease-in-out;
+            background-image: linear-gradient(to top left, $secondary-color 10%, $main-color 40%, $main-color 50%, transparent 50%);
+            background-size: 200% 200%;
+            background-position: bottom right;
+            position: relative;
+            overflow: hidden;
+            margin-left: 32px;
+
+            &:hover {
+                color: $main-color;
+                background-color: transparent;
+                background-position: top left;
+                transform: scale(1.075);
+            }
+
+            &:active {
+                transform: unset;
+            }
+        }
+    }
+}
+
+.jc-end {
+    justify-content: end;
+}
+
+.ai-end {
+    align-items: end;
+    order: -1;
+}
