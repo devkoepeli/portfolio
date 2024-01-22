@@ -153,6 +153,7 @@
 }
 
 @import './app/shared/styles/mixins.scss';
+@import './app/shared/styles/variables.scss';
 
 * {
     box-sizing: border-box;
@@ -169,7 +170,10 @@ body {
     background-color: #fff;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Baloo 2', 'Montserrat', sans-serif;
     line-height: 0.9;
 }
@@ -179,8 +183,35 @@ h1, h2, h3, h4 {
 }
 
 .container {
+    position: relative;
     max-width: 1920px;
     width: 100%;
     margin: 0 auto;
     @include page-padding;
+}
+
+.main-button {
+    display: inline-block;
+    color: $main-color;
+    font-size: 23px;
+    border: 2px solid $main-color;
+    border-radius: 8px;
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: .125s ease-in-out;
+    background-image: linear-gradient(to top left, transparent 50%, $main-color 50%, #0043F0);
+    background-size: 200% 200%;
+    background-position: bottom right;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        color: white;
+        background-position: top left;
+        transform: scale(1.075);
+    }
+
+    &:active {
+        transform: unset;
+    }
 }

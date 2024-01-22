@@ -1,0 +1,33 @@
+@import '../../shared/styles/mixins.scss';
+@import '../../shared/styles/variables.scss';
+
+.about__container {
+    @include flexbox($gap: 80px, $ai: start);
+    padding-top: 176px;
+    padding-bottom: 120px;
+
+    h2 {
+        width: 50%;
+        font-size: 121px;
+        color: $main-color;
+        line-height: 1;
+    }
+
+    div {
+        width: 50%;
+        @include flexbox($fd: column, $ai: center, $gap: 32px);
+
+        p {
+            color: $font-black;
+            font-size: 23px;
+        }
+    }
+}
+
+.ellipse {
+    position: absolute;
+    left: 70vw;
+    top: 50px;
+    display: inline-block;
+    width: 80px;
+}
