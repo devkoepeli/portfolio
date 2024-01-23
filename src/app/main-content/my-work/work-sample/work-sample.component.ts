@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 interface sample {
@@ -10,7 +11,7 @@ interface sample {
 @Component({
   selector: 'app-work-sample',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './work-sample.component.html',
   styleUrl: './work-sample.component.scss'
 })

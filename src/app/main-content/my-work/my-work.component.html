@@ -1,9 +1,12 @@
 <section>
     <div class="container">
         <div class="intro">
-            <h2>My work</h2>
+            <h2>My work
+                <img class="ellipse-1" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
+            </h2>
             <p>This page is a sample of my work - please feel free to try them out.</p>
         </div>
+        <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 
         <app-work-sample *ngFor="let sample of workSamples, let i = index" [sample]="sample" [index]="i" [samplesLength]="workSamples.length"></app-work-sample>
     </div>

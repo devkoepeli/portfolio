@@ -5,7 +5,27 @@
     @include flexbox($jc: start, $gap: 80px);
     padding-bottom: 120px;
 
-    img {
+    .sample-img-container {
+        position: relative;
+
+        .ellipse-3 {
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: -50%;
+            width: 390px;
+        }
+
+        .ellipse-4 {
+            position: absolute;
+            z-index: -1;
+            bottom: -40%;
+            left: 25%;
+            width: 240px;
+        }
+    }
+
+    .sample-img {
         box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
         transition: all .15s ease-in-out;
         cursor: pointer;
