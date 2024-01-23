@@ -1,0 +1,171 @@
+@import '../../shared/styles/mixins.scss';
+@import '../../shared/styles/variables.scss';
+
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background-image: linear-gradient(168deg, transparent 50%, rgba(89, 136, 255, 0.2));
+}
+
+h2 {
+    font-size: 96px;
+    color: $main-color;
+    padding-bottom: 100px;
+}
+
+.contact-container {
+    @include flexbox($ai: start);
+}
+
+.info-container {
+    width: 50%;
+    padding-right: 120px;
+    position: relative;
+
+    .info-subheading {
+        font-weight: bold;
+        font-size: 32px;
+        color: $main-color;
+        padding-bottom: 40px;
+    }
+
+    p {
+        color: $font-black;
+        font-size: 16px;
+        padding-bottom: 32px;
+    }
+
+    .info-cta {
+        font-size: 16px;
+        color: $main-color;
+
+        span {
+            font-family: 'Baloo 2', 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    .ellipse-1 {
+        position: relative;
+        z-index: -1;
+        top: 40px;
+        left: 160px;
+        width: 204px;
+    }
+}
+
+.form-container {
+    width: 50%;
+    position: relative;
+
+    .form {
+        @include flexbox($fd: column);
+    }
+
+    .form-input,
+    .form-text {
+        font-family: inherit;
+        -webkit-apppearance: none;
+        appearance: none;
+        width: 100%;
+        margin-bottom: 32px;
+        background-color: white;
+        padding: 16px 24px;
+        border: 1px solid $main-color;
+        border-radius: 12px;
+
+        letter-spacing: 0.5px;
+        font-size: 16px;
+        color: rgb(60, 60, 60);
+        line-height: 1.3;
+    }
+
+    .form-text {
+        resize: none;
+        height: 200px;
+        margin-bottom: 24px;
+    }
+
+    .form-input::placeholder,
+    .form-text::placeholder {
+        color: $font-black;
+    }
+
+    .form-input:hover,
+    .form-text:hover {
+        outline: 1px solid $main-color;
+    }
+
+    .form-input:focus,
+    .form-text:focus {
+        outline: unset;
+    }
+
+    .bg-transp {
+        background-color: transparent;
+    }
+
+    .ellipse-2 {
+        position: absolute;
+        z-index: -1;
+        bottom: -32px;
+        right: 24px;
+        width: 73px;
+    }
+
+    .pp-checkbox-container {
+        padding-bottom: 48px;
+    }
+
+    .pp-note {
+        font-size: 14px;
+    }
+
+    .pp-link {
+        color: $main-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.arrow-wrapper {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    padding-left: inherit;
+}
+
+.arrow-subwrapper {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.arrow-hover,
+.arrow-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    transition: opacity .2s ease-in-out;
+}
+
+.arrow-hover {
+    opacity: 0;
+    z-index: 1;
+}
+
+.arrow-subwrapper:hover .arrow-hover {
+    opacity: 1;
+}
+
+.arrow-subwrapper:hover .arrow-main {
+    opacity: 0;
+}

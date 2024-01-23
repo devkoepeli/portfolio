@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ContactComponent } from './contact/contact.component';
 import { HeroComponent } from './hero/hero.component';
 import { MyWorkComponent } from './my-work/my-work.component';
 import { SkillSetComponent } from './skill-set/skill-set.component';
@@ -13,7 +14,8 @@ import { SkillSetComponent } from './skill-set/skill-set.component';
     HeaderComponent,
     AboutMeComponent,
     SkillSetComponent,
-    MyWorkComponent
+    MyWorkComponent,
+    ContactComponent
   ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
