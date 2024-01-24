@@ -25,7 +25,8 @@ h2 {
 
     .icon-container {
         @include flexbox();
-        flex: 1;
+        max-width: 220px;
+        width: 100%;
 
         > div {
             width: max-content;

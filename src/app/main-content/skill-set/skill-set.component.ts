@@ -18,7 +18,7 @@ export class SkillSetComponent {
     { name: 'Firebase', image: './assets/img/firebase.svg' },
     { name: 'GIT', image: './assets/img/git.svg' },
     { name: 'CSS', image: './assets/img/css.svg' },
-    { name: 'Rest-Api', image: './assets/img/api.svg' },
-    { name: 'Material', image: './assets/img/material.svg' }
+    { name: 'REST-API', image: './assets/img/api.svg' },
+    { name: 'Material Design', image: './assets/img/material.svg' }
   ]
 }
