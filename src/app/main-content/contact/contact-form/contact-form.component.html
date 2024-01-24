@@ -1,0 +1,19 @@
+<div class="form-container">
+    <form class="form" (submit)="sendMail()" ngNativeValidate #form="ngForm">
+        <input class="form-input" type="text" name="name" placeholder="Your name" required [(ngModel)]="name">
+        <input class="form-input" type="email" name="email" placeholder="Your email" required [(ngModel)]="email">
+        <textarea class="form-text" name="message" placeholder="Your message" required [(ngModel)]="message"></textarea>
+        <div class="pp-checkbox-container">
+            <input type="checkbox" name="privacy policy" required>
+            <span class="pp-note">I've read the <a class="pp-link" href="#">privacy policy</a> and agree to the processing of my data as outlined.</span>
+        </div>
+        <button [disabled]="!form.valid" class="main-button form-button" type="submit">Say hello ;)</button>
+    </form>
+    <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
+    <div *ngIf="isLoading" class="loader-wrapper">
+        <span class="loader"></span>
+    </div>
+    <div *ngIf="isSent" class="success-wrapper">
+        <span class="form-success">Message sent successfully!</span>
+    </div>
+</div>

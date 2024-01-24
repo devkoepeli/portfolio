@@ -207,13 +207,13 @@ h4 {
     overflow: hidden;
     cursor: pointer;
 
-    &:hover {
+    &:hover:not([disabled]) {
         color: white;
         background-position: top left;
         transform: scale(1.075);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         transform: unset;
     }
 }

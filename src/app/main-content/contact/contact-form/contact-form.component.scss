@@ -1,0 +1,157 @@
+@import '../../../shared/styles/mixins.scss';
+@import '../../../shared/styles/variables.scss';
+
+.form-container {
+    width: 100%;
+    position: relative;
+
+    .form {
+        @include flexbox($fd: column);
+    }
+
+    .form-input,
+    .form-text {
+        font-family: inherit;
+        -webkit-apppearance: none;
+        appearance: none;
+        width: 100%;
+        margin-bottom: 32px;
+        background-color: white;
+        padding: 16px 24px;
+        border: 1px solid $main-color;
+        border-radius: 12px;
+
+        letter-spacing: 0.5px;
+        font-size: 16px;
+        color: rgb(60, 60, 60);
+        line-height: 1.3;
+    }
+
+    .form-text {
+        resize: none;
+        height: 200px;
+        margin-bottom: 24px;
+    }
+
+    .form-input::placeholder,
+    .form-text::placeholder {
+        color: $font-black;
+    }
+
+    .form-input:hover,
+    .form-text:hover {
+        outline: 1px solid $main-color;
+    }
+
+    .form-input:focus,
+    .form-text:focus {
+        outline: unset;
+    }
+
+    .form-button {
+        background-color: transparent;
+    }
+
+    .form-button:disabled {
+        color: grey;
+        border-color: grey;
+    }
+
+    .ellipse-2 {
+        position: absolute;
+        z-index: -1;
+        bottom: -32px;
+        right: 24px;
+        width: 73px;
+    }
+
+    .pp-checkbox-container {
+        padding-bottom: 48px;
+    }
+
+    .pp-note {
+        font-size: 14px;
+    }
+
+    .pp-link {
+        color: $main-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.loader-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include flexbox();
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(89, 136, 255, 0.2);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-bottom-color: $main-color;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.success-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include flexbox();
+}
+
+.form-success {
+    background-image: linear-gradient(135deg, $main-color, $secondary-color);
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: white;
+    font-size: 23px;
+    animation: fadeIn .4s ease-in-out backwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(500%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
