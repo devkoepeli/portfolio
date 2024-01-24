@@ -1,0 +1,66 @@
+@import '../../../shared/styles/mixins.scss';
+@import '../../../shared/styles/variables.scss';
+
+footer {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    background-image: linear-gradient(135deg, $main-color 50%, $secondary-color);
+}
+
+.footer-container {
+    @include flexbox($jc: space-between);
+}
+
+.footer-info {
+    @include flexbox($fd: column, $gap: 16px);
+
+    .name {
+        color: $font-white;
+        font-size: 23px;
+    }
+}
+
+.imprint-wrapper {
+    text-align: center;
+}
+
+.imprint-link {
+    color: $font-white;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    transition: all .1s ease-in-out;
+    padding-bottom: 3px;
+    position: relative;
+    border-bottom: 2px solid transparent;
+}
+
+.imprint-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    border-bottom: 2px solid $font-white;
+    transition: all .15s ease;
+}
+
+.imprint-link:hover::after {
+    right: 0; 
+}
+
+.footer-icons {
+    @include flexbox($gap: 48px);
+
+    img {
+        transition: all .15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.25);
+        }
+    }
+}
+
+.logo-link {
+    width: 186px;
+}
