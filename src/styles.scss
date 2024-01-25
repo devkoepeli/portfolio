@@ -179,6 +179,23 @@ h4 {
     line-height: 0.9;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $main-color;
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $secondary-color;
+}
+
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
