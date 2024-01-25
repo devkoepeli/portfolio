@@ -4,7 +4,6 @@
 .hero {
     position: relative;
     height: 100%;
-    // overflow: hidden;
     @include flexbox();
 
     &__main-content {
@@ -82,12 +81,28 @@
             font-size: 23px;
         }
 
-        div {
-            content: '';
-            display: block;
+        .scroll-wrapper {
             width: 2px;
             height: 25%;
+            overflow: hidden;
+        }
+
+        .scroll-line {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 125%;
             background-color: $main-color;
+            animation: moveDown 3.5s ease-out infinite;
+        }
+
+        @keyframes moveDown {
+            from {
+              transform: translateY(-100%);
+            }
+            to {
+              transform: translateY(100%);
+            }
         }
     }
 }
