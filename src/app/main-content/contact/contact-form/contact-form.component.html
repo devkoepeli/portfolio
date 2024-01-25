@@ -1,10 +1,32 @@
 <div class="form-container">
     <form class="form" (submit)="sendMail()" ngNativeValidate #form="ngForm">
-        <input class="form-input" type="text" name="name" placeholder="Your name" required [(ngModel)]="name">
-        <input class="form-input" type="email" name="email" placeholder="Your email" required [(ngModel)]="email">
-        <textarea class="form-text" name="message" placeholder="Your message" required [(ngModel)]="message"></textarea>
+        <div class="input-wrapper">
+            <span *ngIf="isNameFocused || name.length > 0" class="input-title">Your name</span>
+            <input class="form-input" [class.input-placeholder]="isNameFocused" type="text" name="name" placeholder="Your name" required 
+                [(ngModel)]="name"
+                (focus)="isNameFocused = true"
+                (blur)="isNameFocused = false">
+        </div>
+        <div class="input-wrapper">
+            <span *ngIf="isEmailFocused || email.length > 0" class="input-title">Your email</span>
+            <input class="form-input" [class.input-placeholder]="isEmailFocused" type="email" name="email" placeholder="Your email" required 
+                [(ngModel)]="email"
+                (focus)="isEmailFocused = true"
+                (blur)="isEmailFocused = false">
+        </div>
+        <div class="input-wrapper">
+            <span *ngIf="isMessageFocused || message.length > 0" class="input-title">Your message</span>
+            <textarea class="form-text" [class.input-placeholder]="isMessageFocused" name="message" placeholder="Your message" required 
+                [(ngModel)]="message"
+                (focus)="isMessageFocused = true"
+                (blur)="isMessageFocused = false"></textarea>
+        </div>
         <div class="pp-checkbox-container">
-            <input type="checkbox" name="privacy policy" required>
+            <label click="toggleCheckbox()" for="checkbox">
+                <img [class.d-block]="!privacyPolicyAccepted" src="./assets/img/checkbox_unchecked.svg" alt="Checkbox">
+                <img [class.d-block]="privacyPolicyAccepted" src="./assets/img/checkbox_checked.svg" alt="Checkbox">
+            </label>
+            <input id="checkbox" type="checkbox" name="privacy-policy" required [(ngModel)]="privacyPolicyAccepted">
             <span class="pp-note">I've read the <a class="pp-link" href="#">privacy policy</a> and agree to the processing of my data as outlined.</span>
         </div>
         <button [disabled]="!form.valid" class="main-button form-button" type="submit">Say hello ;)</button>

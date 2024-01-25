@@ -45,7 +45,7 @@
 
     .form-input:focus,
     .form-text:focus {
-        outline: unset;
+        outline: 1px solid $main-color;
     }
 
     .form-button {
@@ -67,6 +67,21 @@
 
     .pp-checkbox-container {
         padding-bottom: 48px;
+        @include flexbox($gap: 16px);
+
+        img {
+            display: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(89, 136, 255, 0.2);
+            }
+        }
+
+        .d-block {
+            display: block;
+        }
+
     }
 
     .pp-note {
@@ -79,6 +94,39 @@
 
         &:hover {
             text-decoration: underline;
+        }
+    }
+
+    .input-placeholder::placeholder {
+        color: transparent;
+    }
+
+    #checkbox {
+        display: none;
+    }
+}
+
+.input-wrapper {
+    width: 100%;
+    position: relative;
+
+    .input-title {
+        position: absolute;
+        top: -10px;
+        left: 26px;
+        padding-right: 2px;
+        background-color: white;
+        color: $font-black;
+        font-size: 16px;
+        animation: opacity .15s ease-in-out backwards;
+
+        @keyframes opacity {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     }
 }

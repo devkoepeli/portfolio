@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -17,9 +17,13 @@ export class ContactFormComponent {
   name: string = '';
   email: string = '';
   message: string = '';
+  privacyPolicyAccepted: boolean = false;
 
   isLoading = false;
   isSent = false;
+  isNameFocused = false;
+  isEmailFocused = false;
+  isMessageFocused = false;
 
   async sendMail() {
     this.isLoading = true;
@@ -50,5 +54,14 @@ export class ContactFormComponent {
     this.name = '';
     this.email = '';
     this.message = '';
+    this.privacyPolicyAccepted = false;
+  }
+
+  toggleCheckbox() {
+    if (!this.privacyPolicyAccepted) {
+      this.privacyPolicyAccepted = true;
+    } else {
+      this.privacyPolicyAccepted = false;
+    }
   }
 }
