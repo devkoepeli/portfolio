@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
@@ -21,5 +21,7 @@ import { SkillSetComponent } from './skill-set/skill-set.component';
   styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent {
+
+  constructor() {}
 
 }

@@ -1,12 +1,14 @@
 <header>
     <div class="container">
         <div class="header-container">
-            <img src="./assets/img/logo.svg" alt="Logo">
+            <a routerLink="/">
+                <img src="./assets/img/logo.svg" alt="Logo">
+            </a>
             <nav>
                 <ul>
-                    <li><a href="">About Me</a></li>
-                    <li><a href="">Skill Set</a></li>
-                    <li><a href="">My Work</a></li>
+                    <li><a [routerLink]="['/']" fragment="about">About Me</a></li>
+                    <li><a [routerLink]="['/']" fragment="skills">Skill Set</a></li>
+                    <li><a [routerLink]="['/']" fragment="work">My Work</a></li>
                 </ul>
             </nav>
         </div>
