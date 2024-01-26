@@ -27,7 +27,7 @@
                 <img [class.d-block]="privacyPolicyAccepted" src="./assets/img/checkbox_checked.svg" alt="Checkbox">
             </label>
             <input id="checkbox" type="checkbox" name="privacy-policy" required [(ngModel)]="privacyPolicyAccepted">
-            <span class="pp-note">I've read the <a class="pp-link" href="#">privacy policy</a> and agree to the processing of my data as outlined.</span>
+            <span class="pp-note">I've read the <a class="pp-link" routerLink="/privacy-policy">privacy policy</a> and agree to the processing of my data as outlined.</span>
         </div>
         <button [disabled]="!form.valid" class="main-button form-button" type="submit">Say hello ;)</button>
     </form>
