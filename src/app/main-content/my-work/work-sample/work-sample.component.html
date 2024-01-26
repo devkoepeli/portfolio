@@ -1,6 +1,6 @@
 <div class="work-sample" [class.jc-end]="index % 2 !== 0" [style.padding-bottom.px]="samplesLength - 1 == index ? 0 : null">
     <div class="sample-img-container">
-        <a href="">
+        <a [href]="sample.testURL" target="_blank">
             <img class="sample-img" [src]="sample.image" [alt]="'Image of ' + sample.title">
         </a>
         <img *ngIf="index == 0" class="ellipse-3" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
@@ -12,8 +12,8 @@
         <div>{{ sample.tools }}</div>
         <p [class.t-end]="index % 2 !== 0">{{ sample.description }}</p>
         <div class="buttons">
-            <a href="" class="main-button">GitHub</a>
-            <a href="" class="secondary-button">Live test</a>
+            <a [href]="sample.githubURL" target="_blank" class="main-button">GitHub</a>
+            <a [href]="sample.testURL" target="_blank" class="secondary-button">Live test</a>
         </div>
     </div>
 </div>

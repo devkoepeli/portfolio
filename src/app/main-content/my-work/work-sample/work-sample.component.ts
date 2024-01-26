@@ -1,12 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Sample } from '../../../shared/interfaces/sample.interface';
 
-interface sample {
-  title: string,
-  tools: string,
-  description: string,
-  image: string
-}
 
 @Component({
   selector: 'app-work-sample',
@@ -16,7 +11,7 @@ interface sample {
   styleUrl: './work-sample.component.scss'
 })
 export class WorkSampleComponent {
-  @Input() sample!: sample;
+  @Input() sample!: Sample;
   @Input() index!: number;
   @Input() samplesLength!: number;
 
