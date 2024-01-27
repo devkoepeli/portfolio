@@ -16,18 +16,24 @@
         @include flexbox($ai: end);
         height: 100%;
         width: 50%;
+        @include mq(mobile) {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
 
         img {
             display: block;
             width: 100%;
             object-fit: contain;
-            height: 100%;
-            object-position: center 100px;
-        }
-
-        @media(max-width: 1260px) {
-            img {
-                object-fit: cover;
+            height: 90%;
+            object-position: bottom;
+            @include mq(mobile) {
+                padding-top: 230px;
+                object-position: bottom;
+                object-fit: contain;
             }
         }
     }
@@ -36,16 +42,70 @@
         width: 50%;
         height: 100%;
         padding-top: 64px;
-        @include flexbox($ai: start);
+        @include flexbox($ai: start, $jc: end);
+        @include mq(tablet) {
+            padding-top: 120px;
+        }
+        @include mq(mobile) {
+            width: 100%;
+            position: absolute;
+            @include page-padding;
+            color: $font-white;
+            justify-content: start;
+            padding-top: 80px;
+        }
+
+        @media(max-width: 440px) {
+            padding-top: 100px;
+        }
 
         h1 {
             color: $main-color;
-            font-size: 128px;
+            font-size: 96px;
+            width: min-content;
+
+            @media(min-width: 1400px) {
+                font-size: 118px
+            }
+
+            @media(max-width: 1200px) {
+                font-size: 80px;
+            }
+
+            @include mq(mobile) {
+                color: $font-white;
+                font-size: 76px;
+            }
+
+            @media (max-width: 450px) {
+                font-size: 64px;
+            }
+
+            @media (max-width: 380px) {
+                font-size: 56px;
+            }
 
             .greet {
-                font-size: 64px;
+                font-size: 40px;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 400;
+
+                @media(min-width: 1400px) {
+                    font-size: 56px
+                }
+
+                @include mq(mobile) {
+                    color: $font-white;
+                    font-size: 36px;
+                }
+                
+                @media (max-width: 450px) {
+                    font-size: 32px;
+                }
+
+                @media (max-width: 380px) {
+                    font-size: 28px;
+                }
             }
         }
     }
@@ -73,7 +133,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 65vw;
+        left: 67vw;
         @include flexbox($fd: column, $jc: end, $gap: 8px);
 
         span {
@@ -121,6 +181,18 @@
         display: inline-block;
         width: 60vw;
         aspect-ratio: 1 / 1;
+
+        @include mq(mobile) {
+            width: 115%;
+            transform: unset;
+            position: absolute;
+            top: -170px;
+            right: 0;
+        }
+        @media(max-width: 515px) {
+            width: 130%;
+            top: -20px;
+        }
     }
 }
 
@@ -132,6 +204,12 @@
     margin: 0 auto;
     width: 200px;
     transform: translateY(50%);
+    @include mq(tablet) {
+        width: 175px;
+    }
+    @include mq(mobile) {
+        width: 150px;
+    }
 }
 
 .container {

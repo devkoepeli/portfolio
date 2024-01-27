@@ -8,6 +8,7 @@
         </div>
         <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 
-        <app-work-sample *ngFor="let sample of workSamples, let i = index" [sample]="sample" [index]="i" [samplesLength]="workSamples.length"></app-work-sample>
+        <app-work-sample *ngFor="let sample of workSamples, let i = index" [sample]="sample"
+        [index]="i" [samplesLength]="workSamples.length"></app-work-sample>
     </div>
 </section>

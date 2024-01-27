@@ -5,7 +5,7 @@
                 <img *ngIf="isMainRoute" src="./assets/img/logo.svg" alt="Logo">
                 <img *ngIf="!isMainRoute" src="./assets/img/logo-blue.svg" alt="Logo">
             </a>
-            <nav>
+            <nav *ngIf="screenWidth >= 768">
                 <ul>
                     <li><a [routerLink]="['/']" fragment="about">About Me</a></li>
                     <li><a [routerLink]="['/']" fragment="skills">Skill Set</a></li>

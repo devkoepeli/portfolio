@@ -9,7 +9,7 @@
                     <br>FRONTEND DEVELOPER</h1>
             </div>
         </div>
-        <div class="hero__icons">
+        <div *ngIf="screenWidth >= 768" class="hero__icons">
             <a href="https://github.com/devkoepeli" target="_blank">
                 <img src="./assets/img/github.svg" alt="GitHub Icon">
             </a>
@@ -24,7 +24,7 @@
     <div class="ellipse-container">
         <img class="ellipse" src="./assets/img/ellipse.svg" draggable="false" alt="ellipse">
     </div>
-    <div class="hero__scroll">
+    <div *ngIf="screenWidth >= 768" class="hero__scroll">
         <span>SCROLL</span>
         <div class="scroll-wrapper">
             <div class="scroll-line"></div>

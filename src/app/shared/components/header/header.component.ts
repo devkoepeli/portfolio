@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/rout
 })
 export class HeaderComponent implements OnInit {
   isMainRoute = true;
+  screenWidth!: number;
 
   constructor(private router: Router) { }
 
@@ -24,5 +25,10 @@ export class HeaderComponent implements OnInit {
         }
       }
     })
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    this.screenWidth = window.innerWidth;
   }
 }

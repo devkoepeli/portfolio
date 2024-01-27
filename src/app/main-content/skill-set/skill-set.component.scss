@@ -11,22 +11,39 @@ h2 {
     font-size: 96px;
     color: white;
     text-align: center;
-    padding-bottom: 80px
+    padding-bottom: 80px;
+    @include mq(tablet) {
+        padding-bottom: 64px;
+        font-size: 80px;
+    }
+    @include mq(mobile) {
+        font-size: 64px;
+    }
 }
 
 .icons {
     @include flexbox($fd: column, $gap: 64px);
+    @include mq(tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
     &-top,
     &-bottom {
         @include flexbox();
         width: 100%;
+        @include mq(tablet) {
+            display: contents;
+        }
     }
 
     .icon-container {
         @include flexbox();
         max-width: 220px;
         width: 100%;
+        @include mq (tablet) {
+            max-width: 80px;
+        }
 
         > div {
             width: max-content;
@@ -50,6 +67,10 @@ h2 {
             font-size: 16px;
             color: white;
             transition: all .1s ease-in-out;
+
+            @include mq(tablet) {
+                text-align: center;
+            }
         }
 
     }

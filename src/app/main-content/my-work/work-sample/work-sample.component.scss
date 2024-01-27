@@ -4,9 +4,22 @@
 .work-sample {
     @include flexbox($jc: start, $gap: 80px);
     padding-bottom: 120px;
+    @include mq(tablet) {
+        flex-direction: column;
+        padding-bottom: 64px;
+        gap: 64px;
+    }
 
     .sample-img-container {
         position: relative;
+        width: 50%;
+
+        @include mq(tablet) {
+            width: 75%;
+        }
+        @include mq(mobile) {
+            width: 100%;
+        }
 
         .ellipse-3 {
             position: absolute;
@@ -14,6 +27,11 @@
             top: 50%;
             left: -50%;
             width: 390px;
+
+            @include mq(mobile) {
+                width: 250px;
+                top: 40%;
+            }
         }
 
         .ellipse-4 {
@@ -22,6 +40,12 @@
             bottom: -40%;
             left: 25%;
             width: 240px;
+
+            @include mq(tablet) {
+                right: -20%;
+                bottom: -30%;
+                left: unset;
+            }
         }
     }
 
@@ -29,6 +53,7 @@
         box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
         transition: all .15s ease-in-out;
         cursor: pointer;
+        width: 100%;
 
         &:hover {
             transform: scale(1.075) translateY(-32px);
@@ -40,6 +65,14 @@
     @include flexbox($fd: column, $ai: start);
     width: 50%;
 
+    @include mq(tablet) {
+        width: 75%;
+        align-items: center;
+    }
+    @include mq(mobile) {
+        width: 100%;
+    }
+
     h3 {
         font-size: 45px;
         color: $main-color;
@@ -50,19 +83,31 @@
         color: $main-color;
         font-size: 23px;
         padding-bottom: 24px;
+        @include mq(tablet) {
+            text-align: center;
+        }
     }
 
     p {
         font-size: 16px;
         color: $font-black;
         padding-bottom: 32px;
+        @include mq(tablet) {
+            text-align: center;
+        }
     }
 
     .t-end {
         text-align: end;
+        @include mq(tablet) {
+            text-align: center;
+        }
     }
 
     .buttons {
+        @media (max-width: 400px) {
+            @include flexbox($fd: column, $gap: 16px);
+        }
 
         .secondary-button {
             display: inline-block;
@@ -80,6 +125,9 @@
             position: relative;
             overflow: hidden;
             margin-left: 32px;
+            @media (max-width: 400px) {
+                margin-left: 0;
+            }
 
             &:hover {
                 color: $main-color;
@@ -102,4 +150,9 @@
 .ai-end {
     align-items: end;
     order: -1;
+
+    @include mq(tablet) {
+        order: 1;
+        align-items: center;
+    }
 }

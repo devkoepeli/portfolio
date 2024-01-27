@@ -203,3 +203,15 @@
         transform: translateY(0);
     }
 }
+
+.ellipse-1 {
+    position: absolute;
+    z-index: -1;
+    top: 70px;
+    left: 165px;
+    width: 140px;
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
