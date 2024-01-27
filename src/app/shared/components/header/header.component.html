@@ -2,7 +2,8 @@
     <div class="container">
         <div class="header-container">
             <a routerLink="/">
-                <img src="./assets/img/logo.svg" alt="Logo">
+                <img *ngIf="isMainRoute" src="./assets/img/logo.svg" alt="Logo">
+                <img *ngIf="!isMainRoute" src="./assets/img/logo-blue.svg" alt="Logo">
             </a>
             <nav>
                 <ul>
