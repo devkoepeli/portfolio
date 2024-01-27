@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Renderer2 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -13,7 +13,11 @@ export class HeaderComponent implements OnInit {
   isMainRoute = true;
   screenWidth!: number;
 
-  constructor(private router: Router) { }
+  isMenuOpen = false;
+
+  constructor(private router: Router, private renderer: Renderer2) { 
+    this.onResize();
+  }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -30,5 +34,14 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     this.screenWidth = window.innerWidth;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      this.renderer.addClass(document.body, 'menu-open');
+    } else {
+      this.renderer.removeClass(document.body, 'menu-open');
+    }
   }
 }

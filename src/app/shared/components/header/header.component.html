@@ -12,6 +12,32 @@
                     <li><a [routerLink]="['/']" fragment="work">My Work</a></li>
                 </ul>
             </nav>
+            <div *ngIf="screenWidth <= 767.98">
+                <div class="header__top">
+                    <div class="header__hamburger-container" (click)="toggleMenu()" [class.hamburger-active]="isMenuOpen">
+                        <span class="header__hamburger"></span>
+                    </div>
+                </div>
+                <div class="header__menu" (click)="toggleMenu()" [class.header__menu-overlay]="isMenuOpen">
+                    <a routerLink="/">
+                        <img [class.menu-logo]="isMenuOpen" src="./assets/img/logo-blue.svg" alt="Logo">
+                    </a>
+                    <ul class="header__menu-list">
+                        <li class="header__menu-item">
+                            <a class="header__menu-link" routerLink="/" fragment="about">About me</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a class="header__menu-link" routerLink="/" fragment="skills">Skill set</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a class="header__menu-link" routerLink="/" fragment="work">My work</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a class="header__menu-link" routerLink="/" fragment="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </header>
