@@ -194,6 +194,11 @@
     animation: fadeIn .4s ease-in-out backwards;
 }
 
+.error {
+    background-image: unset;
+    background: red;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

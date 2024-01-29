@@ -38,5 +38,8 @@
     <div *ngIf="isSent" class="success-wrapper">
         <span class="form-success">Message sent successfully!</span>
     </div>
+    <div *ngIf="failedToSend" class="success-wrapper">
+        <span class="form-success error">Failed to send message!</span>
+    </div>
     <img class="ellipse-1" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 </div>

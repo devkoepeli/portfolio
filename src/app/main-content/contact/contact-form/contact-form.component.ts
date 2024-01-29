@@ -27,6 +27,7 @@ export class ContactFormComponent implements OnInit {
   isNameFocused = false;
   isEmailFocused = false;
   isMessageFocused = false;
+  failedToSend = false;
 
   ngOnInit() {
     AOS.init();
@@ -35,6 +36,14 @@ export class ContactFormComponent implements OnInit {
   async sendMail() {
     this.isLoading = true;
 
+    try {
+      await this.formSuccess();
+    } catch (e) {
+      this.formError();
+    }
+  }
+
+  async formSuccess() {
     await this.fetchFormData();
     this.emptyForm();
 
@@ -46,10 +55,20 @@ export class ContactFormComponent implements OnInit {
     }, 1500);
   }
 
+  formError() {
+    this.emptyForm();
+    this.isLoading = false;
+    this.failedToSend = true;
+
+    setTimeout(() => {
+      this.failedToSend = false;
+    }, 1500);
+  }
+
   async fetchFormData() {
     const FORM_URL = 'https://devrimkoepeli.com/send_mail.php';
     const formData = new FormData();
-    
+
     formData.append('name', this.name);
     formData.append('email', this.email);
     formData.append('message', this.message);
