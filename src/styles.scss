@@ -225,14 +225,16 @@ h4 {
     overflow: hidden;
     cursor: pointer;
 
-    &:hover:not([disabled]) {
-        color: white;
-        background-position: top left;
-        transform: scale(1.075);
-    }
-
-    &:active:not([disabled]) {
-        transform: unset;
+    @media(hover: hover) and (pointer: fine) {
+        &:hover:not([disabled]) {
+            color: white;
+            background-position: top left;
+            transform: scale(1.075);
+        }
+    
+        &:active:not([disabled]) {
+            transform: unset;
+        }
     }
 }
 

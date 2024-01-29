@@ -54,10 +54,12 @@
         transition: all .15s ease-in-out;
         cursor: pointer;
         width: 100%;
-
+        
+        @media (hover: hover) and (pointer: fine) {
         &:hover {
             transform: scale(1.075) translateY(-32px);
         } 
+        }
     }
 }
 
@@ -128,16 +130,17 @@
             @media (max-width: 400px) {
                 margin-left: 0;
             }
-
-            &:hover {
-                color: $main-color;
-                background-color: transparent;
-                background-position: top left;
-                transform: scale(1.075);
-            }
-
-            &:active {
-                transform: unset;
+            @media(hover: hover) and (pointer: fine) {
+                &:hover {
+                    color: $main-color;
+                    background-color: transparent;
+                    background-position: top left;
+                    transform: scale(1.075);
+                }
+    
+                &:active {
+                    transform: unset;
+                }
             }
         }
     }

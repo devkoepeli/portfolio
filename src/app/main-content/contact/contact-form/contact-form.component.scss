@@ -40,12 +40,13 @@
 
     .form-input:hover,
     .form-text:hover {
-        outline: 1px solid $main-color;
+        box-shadow: 0 0 0 1px $main-color;
     }
 
     .form-input:focus,
     .form-text:focus {
-        outline: 1px solid $main-color;
+        box-shadow: 0 0 0 1px $main-color;
+        outline: none;
     }
 
     .form-button {
