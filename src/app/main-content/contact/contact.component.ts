@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +9,9 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
+  ngOnInit() {
+    AOS.init();
+  }
 }

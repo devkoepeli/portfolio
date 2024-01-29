@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-contact-form',
@@ -15,7 +16,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnInit {
   name: string = '';
   email: string = '';
   message: string = '';
@@ -26,6 +27,10 @@ export class ContactFormComponent {
   isNameFocused = false;
   isEmailFocused = false;
   isMessageFocused = false;
+
+  ngOnInit() {
+    AOS.init();
+  }
 
   async sendMail() {
     this.isLoading = true;

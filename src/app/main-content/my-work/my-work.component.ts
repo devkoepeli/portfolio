@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WorkSampleComponent } from './work-sample/work-sample.component';
 import { Sample } from '../../shared/interfaces/sample.interface';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-my-work',
@@ -10,7 +11,7 @@ import { Sample } from '../../shared/interfaces/sample.interface';
   templateUrl: './my-work.component.html',
   styleUrl: './my-work.component.scss'
 })
-export class MyWorkComponent {
+export class MyWorkComponent implements OnInit {
   workSamples: Sample[] = [
     { 
       title: 'Join', 
@@ -28,5 +29,9 @@ export class MyWorkComponent {
       testURL: 'https://epl.devrimkoepeli.com',
       githubURL: 'https://github.com/devkoepeli/El-Pollo-Loco'
     }
-  ] 
+  ];
+
+  ngOnInit(): void {
+    AOS.init();
+  }
 }

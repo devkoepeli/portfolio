@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-skill-set',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
   templateUrl: './skill-set.component.html',
   styleUrl: './skill-set.component.scss'
 })
-export class SkillSetComponent {
+export class SkillSetComponent implements OnInit {
   skills = [
     { name: 'Angular', image: './assets/img/angular.svg' },
     { name: 'TypeScript', image: './assets/img/typescript.svg' },
@@ -20,5 +21,9 @@ export class SkillSetComponent {
     { name: 'CSS', image: './assets/img/css.svg' },
     { name: 'REST-API', image: './assets/img/api.svg' },
     { name: 'Material Design', image: './assets/img/material.svg' }
-  ]
+  ];
+
+  ngOnInit(): void {
+    AOS.init();
+  }
 }

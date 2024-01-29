@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-hero',
@@ -8,7 +9,7 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
   screenWidth!: number;
   
   constructor() {
@@ -18,5 +19,9 @@ export class HeroComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
     this.screenWidth = window.innerWidth;
+  }
+
+  ngOnInit(): void {
+    AOS.init();
   }
 }

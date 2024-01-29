@@ -1,14 +1,14 @@
 <section>
     <div class="container">
         <div class="intro">
-            <h2>My work
-                <img class="ellipse-1" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
+            <h2 data-aos="fade-right">My work
             </h2>
-            <p>This page is a sample of my work - please feel free to try them out.</p>
+            <p data-aos="fade-right">This page is a sample of my work - please feel free to try them out.</p>
         </div>
         <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 
         <app-work-sample *ngFor="let sample of workSamples, let i = index" [sample]="sample"
         [index]="i" [samplesLength]="workSamples.length"></app-work-sample>
     </div>
+    <img class="ellipse-1" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 </section>
