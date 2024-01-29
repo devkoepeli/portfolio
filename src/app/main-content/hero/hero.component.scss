@@ -132,10 +132,13 @@
     &__scroll {
         position: absolute;
         top: 0;
+        left: calc(50% + 250px);
         bottom: 0;
-        left: 67vw;
         @include flexbox($fd: column, $jc: end, $gap: 8px);
-
+        @include mq(tablet) {
+            left: calc(50% + 180px)
+        }
+ 
         span {
             color: $main-color;
             font-size: 23px;
