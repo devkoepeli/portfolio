@@ -224,6 +224,7 @@ h4 {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    text-align: center;
 
     @media(hover: hover) and (pointer: fine) {
         &:hover:not([disabled]) {

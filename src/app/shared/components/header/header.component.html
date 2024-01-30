@@ -7,10 +7,17 @@
             </a>
             <nav *ngIf="screenWidth >= 768">
                 <ul>
-                    <li><a [routerLink]="['/']" fragment="about">About Me</a></li>
-                    <li><a [routerLink]="['/']" fragment="skills">Skill Set</a></li>
-                    <li><a [routerLink]="['/']" fragment="work">My Work</a></li>
-                    <li><a [routerLink]="['/']" fragment="contact">Contact</a></li>
+                    <li><a [routerLink]="['/']" fragment="about">
+                        {{ isEnglish() ? translations.english.about : translations.german.about }}</a>
+                    </li>
+                    <li><a [routerLink]="['/']" fragment="skills">
+                        {{ isEnglish() ? translations.english.skills : translations.german.skills }}</a>
+                    </li>
+                    <li><a [routerLink]="['/']" fragment="work">
+                        {{ isEnglish() ? translations.english.work : translations.german.work }}</a>
+                    </li>
+                    <li><a [routerLink]="['/']" fragment="contact">
+                        {{ isEnglish() ? translations.english.contact : translations.german.contact }}</a></li>
                 </ul>
             </nav>
             <div *ngIf="screenWidth <= 767.98">
@@ -23,20 +30,38 @@
                     <a routerLink="/">
                         <img [class.menu-logo]="isMenuOpen" src="./assets/img/logo-blue.svg" alt="Logo">
                     </a>
+                    <div class="lang-container lang-mobile">
+                        <div>
+                            <span (click)="changeLanguage('DE')" class="lang">DE</span>
+                            <span class="separator"></span>
+                            <span (click)="changeLanguage('EN')" class="lang">EN</span>
+                        </div>
+                    </div>
                     <ul class="header__menu-list">
                         <li class="header__menu-item">
-                            <a class="header__menu-link" routerLink="/" fragment="about">About me</a>
+                            <a class="header__menu-link" routerLink="/" fragment="about">
+                                {{ isEnglish() ? translations.english.about : translations.german.about }}</a>
                         </li>
                         <li class="header__menu-item">
-                            <a class="header__menu-link" routerLink="/" fragment="skills">Skill set</a>
+                            <a class="header__menu-link" routerLink="/" fragment="skills">
+                                {{ isEnglish() ? translations.english.skills : translations.german.skills }}</a>
                         </li>
                         <li class="header__menu-item">
-                            <a class="header__menu-link" routerLink="/" fragment="work">My work</a>
+                            <a class="header__menu-link" routerLink="/" fragment="work">
+                                {{ isEnglish() ? translations.english.work : translations.german.work }}</a>
                         </li>
                         <li class="header__menu-item">
-                            <a class="header__menu-link" routerLink="/" fragment="contact">Contact</a>
+                            <a class="header__menu-link" routerLink="/" fragment="contact">
+                                {{ isEnglish() ? translations.english.contact : translations.german.contact }}</a>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div *ngIf="screenWidth >= 768" class="lang-container">
+                <div>
+                    <span (click)="changeLanguage('DE')" class="lang">DE</span>
+                    <span class="separator"></span>
+                    <span (click)="changeLanguage('EN')" class="lang">EN</span>
                 </div>
             </div>
         </div>

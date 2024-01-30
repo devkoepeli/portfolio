@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +13,12 @@ export class FooterComponent implements OnInit {
   clientHeight!: number;
   isLegalNoticeRoute = false;
 
-  constructor(private router: Router) {}
+  translations = {
+    english: "Legal Notice",
+    german: "Impressum"
+  }
+
+  constructor(private router: Router, private translation: TranslationService) {}
 
   ngOnInit() {
     this.clientHeight = window.innerHeight;
@@ -26,5 +32,9 @@ export class FooterComponent implements OnInit {
         }
       }
     })
+  }
+
+  isEnglish(): boolean {
+    return this.translation.isEnglish;
   }
 }

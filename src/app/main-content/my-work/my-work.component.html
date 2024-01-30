@@ -1,9 +1,9 @@
 <section>
     <div class="container">
         <div class="intro">
-            <h2 data-aos="fade-right">My work
+            <h2 data-aos="fade-right">{{ isEnglish() ? translations.english.title : translations.german.title }}
             </h2>
-            <p data-aos="fade-right">This page is a sample of my work - please feel free to try them out.</p>
+            <p data-aos="fade-right">{{ isEnglish() ? translations.english.subtitle : translations.german.subtitle }}</p>
         </div>
         <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -28,6 +29,33 @@ export class ContactFormComponent implements OnInit {
   isEmailFocused = false;
   isMessageFocused = false;
   failedToSend = false;
+
+  translations = {
+    english: {
+      name: "Your name",
+      email: "Your email",
+      message: "Your message",
+      disclaimer_1: "I've read the ",
+      disclaimer_2: "privacy policy",
+      disclaimer_3: " and agree to the processing of my data as outlined.",
+      button: "Say hello ;)",
+      success: "Message sent successfully!",
+      fail: "Failed to send message!"
+    }, 
+    german: {
+      name: "Ihr Name",
+      email: "Ihre Email",
+      message: "Ihre Nachricht",
+      disclaimer_1: "Ich habe die ",
+      disclaimer_2: "Datenschutzerklärung",
+      disclaimer_3: " gelesen und bin mit der Verarbeitung meiner Daten einverstanden.",
+      button: "Sag Hallo ;)",
+      success: "Nachricht erfolgreich gesendet!",
+      fail: "Nachricht konnte nicht gesendet werden!"
+    }
+  }
+
+  constructor(private translation: TranslationService) { }
 
   ngOnInit() {
     AOS.init();
@@ -89,5 +117,9 @@ export class ContactFormComponent implements OnInit {
     } else {
       this.privacyPolicyAccepted = false;
     }
+  }
+
+  isEnglish(): boolean {
+    return this.translation.isEnglish;
   }
 }

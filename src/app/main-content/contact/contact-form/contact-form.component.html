@@ -1,22 +1,28 @@
 <div class="form-container">
     <form class="form" (submit)="sendMail()" ngNativeValidate #form="ngForm">
         <div data-aos="fade-left" class="input-wrapper">
-            <span *ngIf="isNameFocused || name.length > 0" class="input-title">Your name</span>
-            <input class="form-input" [class.input-placeholder]="isNameFocused" type="text" name="name" placeholder="Your name" required 
+            <span *ngIf="isNameFocused || name.length > 0" class="input-title">
+                {{ isEnglish() ? translations.english.name : translations.german.name }}</span>
+            <input class="form-input" [class.input-placeholder]="isNameFocused" type="text" name="name" 
+                [placeholder]="isEnglish() ? translations.english.name : translations.german.name" required 
                 [(ngModel)]="name"
                 (focus)="isNameFocused = true"
                 (blur)="isNameFocused = false">
         </div>
         <div data-aos="fade-left" class="input-wrapper">
-            <span *ngIf="isEmailFocused || email.length > 0" class="input-title">Your email</span>
-            <input class="form-input" [class.input-placeholder]="isEmailFocused" type="email" name="email" placeholder="Your email" required 
+            <span *ngIf="isEmailFocused || email.length > 0" class="input-title">
+                {{ isEnglish() ? translations.english.email : translations.german.email }}</span>
+            <input class="form-input" [class.input-placeholder]="isEmailFocused" type="email" name="email" 
+                [placeholder]="isEnglish() ? translations.english.email : translations.german.email" required 
                 [(ngModel)]="email"
                 (focus)="isEmailFocused = true"
                 (blur)="isEmailFocused = false">
         </div>
         <div data-aos="fade-left" class="input-wrapper">
-            <span *ngIf="isMessageFocused || message.length > 0" class="input-title">Your message</span>
-            <textarea class="form-text" [class.input-placeholder]="isMessageFocused" name="message" placeholder="Your message" required 
+            <span *ngIf="isMessageFocused || message.length > 0" class="input-title">
+                {{ isEnglish() ? translations.english.message : translations.german.message }}</span>
+            <textarea class="form-text" [class.input-placeholder]="isMessageFocused" name="message"
+                [placeholder]="isEnglish() ? translations.english.message : translations.german.message" required 
                 [(ngModel)]="message"
                 (focus)="isMessageFocused = true"
                 (blur)="isMessageFocused = false"></textarea>
@@ -27,19 +33,23 @@
                 <img [class.d-block]="privacyPolicyAccepted" src="./assets/img/checkbox_checked.svg" alt="Checkbox">
             </label>
             <input id="checkbox" type="checkbox" name="privacy-policy" required [(ngModel)]="privacyPolicyAccepted">
-            <span class="pp-note">I've read the <a class="pp-link" routerLink="/privacy-policy">privacy policy</a> and agree to the processing of my data as outlined.</span>
+            <span class="pp-note">{{ isEnglish() ? translations.english.disclaimer_1 : translations.german.disclaimer_1 }}
+                <a class="pp-link" routerLink="/privacy-policy">{{ isEnglish() ? translations.english.disclaimer_2 : translations.german.disclaimer_2 }}</a>
+                {{ isEnglish() ? translations.english.disclaimer_3 : translations.german.disclaimer_3 }}
+            </span>
         </div>
-        <button [disabled]="!form.valid" data-aos="fade-down" class="main-button form-button" type="submit">Say hello ;)</button>
+        <button [disabled]="!form.valid" data-aos="fade-down" class="main-button form-button" type="submit">
+            {{ isEnglish() ? translations.english.button : translations.german.button }}</button>
     </form>
     <img class="ellipse-2" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
     <div *ngIf="isLoading" class="loader-wrapper">
         <span class="loader"></span>
     </div>
     <div *ngIf="isSent" class="success-wrapper">
-        <span class="form-success">Message sent successfully!</span>
+        <span class="form-success">{{ isEnglish() ? translations.english.success : translations.german.success }}</span>
     </div>
     <div *ngIf="failedToSend" class="success-wrapper">
-        <span class="form-success error">Failed to send message!</span>
+        <span class="form-success error">{{ isEnglish() ? translations.english.fail : translations.german.fail }}</span>
     </div>
     <img class="ellipse-1" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
 </div>

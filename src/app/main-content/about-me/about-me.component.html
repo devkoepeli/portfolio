@@ -1,17 +1,19 @@
 <section>
     <div class="container o-hidden">
         <div class="about__container">
-            <h2 data-aos="fade-right">Let's work together</h2>
+            <h2 data-aos="fade-right">{{ isEnglish() ? translations.english.title : translations.german.title }}</h2>
             <div>
-                <p data-aos="fade-left">As a Frontend Developer based in Aarau, Switzerland, I enjoy turning design concepts and business visions into solutions. 
-                    With prior experience in designing websites that convert visitors to customers I understand the importance
-                    of an excellent user experience in applications.
-                    My straightforward approach and hands on mentality enable me to dive deep into new technologies and embrace technical challenges. 
+                <p data-aos="fade-left">
+                    <span>
+                        {{ isEnglish() ? translations.english.description_1 : translations.german.description_1 }}
+                    </span>
                     <br><br>
-                    If you're in search of a committed developer to bring your projects to life, I'm excited to connect with you!
+                    <span>
+                        {{ isEnglish() ? translations.english.description_2 : translations.german.description_2 }}
+                    </span>
                 </p>
                 <div data-aos="fade-down">
-                    <a href="#contact" class="main-button">Send a message</a>
+                    <a href="#contact" class="main-button">{{ isEnglish() ? translations.english.button : translations.german.button }}</a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-skill-set',
@@ -23,7 +24,22 @@ export class SkillSetComponent implements OnInit {
     { name: 'Material Design', image: './assets/img/material.svg' }
   ];
 
+  translations = {
+    english: {
+      title: "Skill set"
+    },
+    german: {
+      title: "Skills"
+    }
+  }
+
+  constructor(private translation: TranslationService) {}
+
   ngOnInit(): void {
     AOS.init();
+  }
+
+  isEnglish(): boolean {
+    return this.translation.isEnglish;
   }
 }

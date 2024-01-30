@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import AOS from 'aos';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-hero',
@@ -11,8 +12,22 @@ import AOS from 'aos';
 })
 export class HeroComponent implements OnInit {
   screenWidth!: number;
-  
-  constructor() {
+
+  translations = {
+    english: {
+      greet: "Hello! I am Devrim",
+      title: "FRONTEND DEVELOPER"
+    },
+    german: {
+      greet: "Hallo! Ich bin Devrim",
+      title: "FRONTEND ENTWICKLER"
+    }
+  }
+
+  @ViewChild('title') title!: ElementRef;
+  @ViewChild('greet') greet!: ElementRef;
+
+  constructor(private translation: TranslationService) {
     this.onResize();
   }
 
@@ -23,5 +38,9 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
     AOS.init();
+  }
+
+  isEnglish(): boolean {
+    return this.translation.isEnglish;
   }
 }

@@ -1,7 +1,8 @@
 export interface Sample {
     title: string,
     tools: string,
-    description: string,
+    description_en: string,
+    description_de: string,
     image: string,
     testURL: string,
     githubURL: string

@@ -138,3 +138,38 @@ nav {
 .header__menu-link:hover {
     font-weight: bold;
 }
+
+.lang-container {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    @include page-padding;
+
+    div {
+        position: relative;
+        z-index: 2;
+        @include flexbox($gap: 6px);
+    }
+
+    .lang {
+        color: $main-color;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 300;
+        transition: all .1s ease-in-out;
+    
+        &:hover {
+            text-shadow: 0.5px 0 $main-color, -0.5px 0 $main-color;
+        }
+    }
+    
+    .separator {
+        background-color: rgba(89, 136, 255, 0.5);
+        width: 1.5px;
+        height: 18px;
+    }
+}
+
+.lang-mobile {
+    top: 120px;
+}
