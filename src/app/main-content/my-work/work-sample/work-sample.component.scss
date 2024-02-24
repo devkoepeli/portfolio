@@ -37,7 +37,7 @@
         .ellipse-4 {
             position: absolute;
             z-index: -1;
-            bottom: -40%;
+            bottom: -30%;
             left: 25%;
             width: 240px;
 
@@ -54,6 +54,7 @@
         transition: all .15s ease-in-out;
         cursor: pointer;
         width: 100%;
+        display: block;
         
         @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -66,6 +67,7 @@
 .work-description {
     @include flexbox($fd: column, $ai: start);
     width: 50%;
+    position: relative;
 
     @include mq(tablet) {
         width: 75%;
@@ -143,6 +145,17 @@
                     transform: unset;
                 }
             }
+        }
+    }
+
+    .ellipse-5 {
+        width: 130px;
+        position: absolute;
+        bottom: -160px;
+        right: 40px;
+
+        @include mq(tablet) {
+            display: none;
         }
     }
 }

@@ -5,8 +5,8 @@
                 <img src="./assets/img/personal-img.png" alt="Image of Developer" draggable="false">
             </div>
             <div class="hero__right" data-aos="fade-left">
-                <h1><span class="greet">{{ isEnglish() ? translations.english.greet : translations.german.greet }}</span>
-                    <br><span>{{ isEnglish() ? translations.english.title : translations.german.title }}</span></h1>
+                <h1><span class="greet">{{ isEnglish ? translations.english.greet : translations.german.greet }}</span>
+                    <br><span>{{ isEnglish ? translations.english.title : translations.german.title }}</span></h1>
             </div>
         </div>
         <div *ngIf="screenWidth >= 768" class="hero__icons">

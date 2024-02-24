@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -18,10 +19,15 @@ export class FooterComponent implements OnInit {
     german: "Impressum"
   }
 
+  isEnglish = true;
+  translationSubscription!: Subscription;
+
   constructor(private router: Router, private translation: TranslationService) {}
 
   ngOnInit() {
     this.clientHeight = window.innerHeight;
+
+    this.translationSubscription = this.translation.isEnglish.subscribe(value => this.isEnglish = value);
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -34,7 +40,7 @@ export class FooterComponent implements OnInit {
     })
   }
 
-  isEnglish(): boolean {
-    return this.translation.isEnglish;
+  ngOnDestroy() {
+    this.translationSubscription.unsubscribe();
   }
 }

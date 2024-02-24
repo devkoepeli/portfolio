@@ -11,10 +11,11 @@
     <div class="work-description" [class.ai-end]="index % 2 !== 0">
         <h3 [index]="index + 1" appDataAos>{{ sample.title }}</h3>
         <div [index]="index + 1" appDataAos>{{ sample.tools }}</div>
-        <p [class.t-end]="index % 2 !== 0" [index]="index + 1" appDataAos>{{ isEnglish() ? sample.description_en : sample.description_de }}</p>
+        <p [class.t-end]="index % 2 !== 0" [index]="index + 1" appDataAos>{{ isEnglish ? sample.description_en : sample.description_de }}</p>
         <div data-aos="fade-down" class="buttons">
             <a [href]="sample.githubURL" target="_blank" class="main-button">GitHub</a>
             <a [href]="sample.testURL" target="_blank" class="secondary-button">Live test</a>
         </div>
+        <img *ngIf="index == 2" class="ellipse-5" src="./assets/img/ellipse.svg" alt="ellipse" draggable="false">
     </div>
 </div>

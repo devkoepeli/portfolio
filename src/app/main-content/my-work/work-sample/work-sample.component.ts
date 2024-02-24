@@ -4,6 +4,7 @@ import { Sample } from '../../../shared/interfaces/sample.interface';
 import AOS from 'aos';
 import { DataAosDirective } from '../../../shared/directives/data-aos.directive';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-work-sample',
@@ -16,14 +17,18 @@ export class WorkSampleComponent implements OnInit {
   @Input() sample!: Sample;
   @Input() index!: number;
   @Input() samplesLength!: number;
-  
+
+  isEnglish = true;
+  translationSubscription!: Subscription;
+
   constructor(private translation: TranslationService) {}
 
   ngOnInit(): void {
     AOS.init();
+    this.translationSubscription = this.translation.isEnglish.subscribe(value => this.isEnglish = value);
   }
 
-  isEnglish(): boolean {
-    return this.translation.isEnglish;
+  ngOnDestroy() {
+    this.translationSubscription.unsubscribe();
   }
 }

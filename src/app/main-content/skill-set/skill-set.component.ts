@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
+import { Subscription } from 'rxjs';
 import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
@@ -33,13 +34,17 @@ export class SkillSetComponent implements OnInit {
     }
   }
 
+  isEnglish = true;
+  translationSubscription!: Subscription;
+
   constructor(private translation: TranslationService) {}
 
   ngOnInit(): void {
     AOS.init();
+    this.translationSubscription = this.translation.isEnglish.subscribe(value => this.isEnglish = value);
   }
 
-  isEnglish(): boolean {
-    return this.translation.isEnglish;
+  ngOnDestroy() {
+    this.translationSubscription.unsubscribe();
   }
 }

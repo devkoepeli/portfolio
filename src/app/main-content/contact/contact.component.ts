@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import AOS from 'aos';
 import { TranslationService } from '../../shared/services/translation.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -21,20 +22,24 @@ export class ContactComponent implements OnInit {
     },
     german: {
       title: "Kontakt",
-      subtitle: "Sie möchten ein Problem lösen?",
-      description: "Kontaktieren Sie mich über dieses Formular. Ich bin daran interessiert, Sie zu hören, Ihre Ideen kennenzulernen und mit meiner Arbeit zu Ihren Projekten beizutragen.",
-      q: "Brauchen Sie einen Frontend Entwickler?",
-      a: "Kontaktieren Sie mich!"
+      subtitle: "Du möchtest ein Problem lösen?",
+      description: "Kontaktiere mich über dieses Formular. Ich freue mich darauf, Deine Ideen kennenzulernen und mit meiner Arbeit zu Deinen Projekten beizutragen.",
+      q: "Brauchst Du einen Frontend Entwickler?",
+      a: "Kontaktiere mich!"
     }
   }
 
-  constructor(private translation: TranslationService) { }
+  isEnglish = true;
+  translationSubscription!: Subscription;
 
-  ngOnInit() {
+  constructor(private translation: TranslationService) {}
+
+  ngOnInit(): void {
     AOS.init();
+    this.translationSubscription = this.translation.isEnglish.subscribe(value => this.isEnglish = value);
   }
 
-  isEnglish(): boolean {
-    return this.translation.isEnglish;
+  ngOnDestroy() {
+    this.translationSubscription.unsubscribe();
   }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import { Subscription } from 'rxjs';
 import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
@@ -43,22 +44,26 @@ export class ContactFormComponent implements OnInit {
       fail: "Failed to send message!"
     }, 
     german: {
-      name: "Ihr Name",
-      email: "Ihre Email",
-      message: "Ihre Nachricht",
+      name: "Dein Name",
+      email: "Deine Email",
+      message: "Deine Nachricht",
       disclaimer_1: "Ich habe die ",
       disclaimer_2: "Datenschutzerklärung",
       disclaimer_3: " gelesen und bin mit der Verarbeitung meiner Daten einverstanden.",
-      button: "Sag Hallo ;)",
+      button: "Absenden",
       success: "Nachricht erfolgreich gesendet!",
       fail: "Nachricht konnte nicht gesendet werden!"
     }
   }
 
+  isEnglish = true;
+  translationSubscription!: Subscription;
+
   constructor(private translation: TranslationService) { }
 
   ngOnInit() {
     AOS.init();
+    this.translationSubscription = this.translation.isEnglish.subscribe(value => this.isEnglish = value);
   }
 
   async sendMail() {
@@ -119,7 +124,7 @@ export class ContactFormComponent implements OnInit {
     }
   }
 
-  isEnglish(): boolean {
-    return this.translation.isEnglish;
+  ngOnDestroy() {
+    this.translationSubscription.unsubscribe();
   }
 }

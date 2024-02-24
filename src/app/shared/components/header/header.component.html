@@ -8,16 +8,16 @@
             <nav *ngIf="screenWidth >= 768">
                 <ul>
                     <li><a [routerLink]="['/']" fragment="about">
-                        {{ isEnglish() ? translations.english.about : translations.german.about }}</a>
+                        {{ isEnglish ? translations.english.about : translations.german.about }}</a>
                     </li>
                     <li><a [routerLink]="['/']" fragment="skills">
-                        {{ isEnglish() ? translations.english.skills : translations.german.skills }}</a>
+                        {{ isEnglish ? translations.english.skills : translations.german.skills }}</a>
                     </li>
                     <li><a [routerLink]="['/']" fragment="work">
-                        {{ isEnglish() ? translations.english.work : translations.german.work }}</a>
+                        {{ isEnglish ? translations.english.work : translations.german.work }}</a>
                     </li>
                     <li><a [routerLink]="['/']" fragment="contact">
-                        {{ isEnglish() ? translations.english.contact : translations.german.contact }}</a></li>
+                        {{ isEnglish ? translations.english.contact : translations.german.contact }}</a></li>
                 </ul>
             </nav>
             <div *ngIf="screenWidth <= 767.98">
@@ -40,19 +40,19 @@
                     <ul class="header__menu-list">
                         <li class="header__menu-item">
                             <a class="header__menu-link" routerLink="/" fragment="about">
-                                {{ isEnglish() ? translations.english.about : translations.german.about }}</a>
+                                {{ isEnglish ? translations.english.about : translations.german.about }}</a>
                         </li>
                         <li class="header__menu-item">
                             <a class="header__menu-link" routerLink="/" fragment="skills">
-                                {{ isEnglish() ? translations.english.skills : translations.german.skills }}</a>
+                                {{ isEnglish ? translations.english.skills : translations.german.skills }}</a>
                         </li>
                         <li class="header__menu-item">
                             <a class="header__menu-link" routerLink="/" fragment="work">
-                                {{ isEnglish() ? translations.english.work : translations.german.work }}</a>
+                                {{ isEnglish ? translations.english.work : translations.german.work }}</a>
                         </li>
                         <li class="header__menu-item">
                             <a class="header__menu-link" routerLink="/" fragment="contact">
-                                {{ isEnglish() ? translations.english.contact : translations.german.contact }}</a>
+                                {{ isEnglish ? translations.english.contact : translations.german.contact }}</a>
                         </li>
                     </ul>
                 </div>

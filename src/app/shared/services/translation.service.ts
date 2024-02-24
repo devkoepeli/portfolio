@@ -1,22 +1,24 @@
 import { ElementRef, Injectable, ViewChild } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslationService {
-  isEnglish = true;
+  private isEnglishSubject = new BehaviorSubject<boolean>(true);
+  isEnglish = this.isEnglishSubject.asObservable();
 
   constructor() { }
 
   translateToGerman() {
-    if (this.isEnglish) {
-      this.isEnglish = false;
+    if (this.isEnglishSubject.value) {
+      this.isEnglishSubject.next(false);
     }
   }
 
   translateToEnglish() {
-    if (!this.isEnglish) {
-      this.isEnglish = true;
+    if (!this.isEnglishSubject.value) {
+      this.isEnglishSubject.next(true);
     }
   }
 }

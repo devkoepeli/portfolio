@@ -1,19 +1,23 @@
 <section>
     <div class="container o-hidden">
         <div class="about__container">
-            <h2 data-aos="fade-right">{{ isEnglish() ? translations.english.title : translations.german.title }}</h2>
+            <h2 data-aos="fade-right">{{ isEnglish ? translations.english.title : translations.german.title }}</h2>
             <div>
                 <p data-aos="fade-left">
                     <span>
-                        {{ isEnglish() ? translations.english.description_1 : translations.german.description_1 }}
+                        {{ isEnglish ? translations.english.description_1 : translations.german.description_1 }}
                     </span>
                     <br><br>
                     <span>
-                        {{ isEnglish() ? translations.english.description_2 : translations.german.description_2 }}
+                        {{ isEnglish ? translations.english.description_2 : translations.german.description_2 }}
+                    </span>
+                    <br><br>
+                    <span>
+                        {{ isEnglish ? translations.english.description_3 : translations.german.description_3 }}
                     </span>
                 </p>
                 <div data-aos="fade-down">
-                    <a href="#contact" class="main-button">{{ isEnglish() ? translations.english.button : translations.german.button }}</a>
+                    <a href="#contact" class="main-button">{{ isEnglish ? translations.english.button : translations.german.button }}</a>
                 </div>
             </div>
         </div>
